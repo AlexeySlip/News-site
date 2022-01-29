@@ -453,3 +453,13 @@ header .col-md-6 {
   display: flex;
   cursor: pointer;
 }
+#input-search-closed {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 11px;
+  background: url(outline_close_black_18dp.png) no-repeat center;
+  height: 15px;
+  width: 15px;
+  display: none;
+}

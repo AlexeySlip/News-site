@@ -293,6 +293,19 @@ scrollToTop.addEventListener("click", function (e) {
 });
 
 // Search
+
+let inputSearchClosed = document.querySelector("#input-search-closed");
+
+console.log(inputSearchClosed);
+
+inputSearchClosed.addEventListener("click", function (e) {
+  e.preventDefault();
+  document.querySelector("#input-search").value = "";
+  inputResult.innerHTML = "";
+  inputResult.classList.remove("show");
+  inputCounter.classList.remove("show");
+});
+
 function searchArticle() {
   input.oninput = function () {
     let value = this.value.trim();
@@ -303,6 +316,7 @@ function searchArticle() {
 
     function search(e) {
       if (value != "") {
+        inputSearchClosed.classList.add("show");
         e.forEach(function (element) {
           if (element.innerText.search(value) == -1) {
             element.innerHTML = element.innerText;
@@ -330,7 +344,7 @@ function searchArticle() {
     if (value != "") {
       inputCounter.classList.add("show");
       if (mark.length == 0) {
-        inputCounter.childNodes[0].innerText = `No matches`;
+        inputCounter.childNodes[0].innerText = `No exact matches found`;
       } else {
         inputCounter.childNodes[0].innerText = `${mark.length} coincidences`;
       }
@@ -352,11 +366,11 @@ function searchArticle() {
 function searchHome(categories) {
   input.oninput = function () {
     let value = this.value.trim();
-    let p = document.querySelectorAll(".root p");
     let h2 = document.querySelectorAll(".root h2");
 
     function search(e) {
       if (value != "") {
+        inputSearchClosed.classList.add("show");
         inputResult.classList.add("show");
         inputResult.innerHTML = "";
         e.forEach(function (element) {
