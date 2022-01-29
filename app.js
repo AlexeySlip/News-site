@@ -139,6 +139,7 @@ function articlePageImg(img, categories) {
   searchArticle();
   inputCounter.classList.remove("show");
   inputResult.classList.remove("show");
+  inputSearchClosed.classList.remove("show");
 }
 function articlePageH2(h2, categories) {
   spinner.removeAttribute("hidden");
@@ -158,6 +159,7 @@ function articlePageH2(h2, categories) {
   searchArticle();
   inputCounter.classList.remove("show");
   inputResult.classList.remove("show");
+  inputSearchClosed.classList.remove("show");
 }
 
 function inquiry(categories) {
@@ -231,6 +233,7 @@ inquiry("trending");
 function newInquiry(categories) {
   root.innerHTML = "";
   inquiry(categories);
+  inputSearchClosed.classList.remove("show");
 }
 
 let trending = document.querySelector("#trending");
@@ -250,6 +253,7 @@ function menuBtn(Btn) {
     newInquiry(Btn.innerText);
     inputCounter.classList.remove("show");
     inputResult.classList.remove("show");
+    inputSearchClosed.classList.remove("show");
   });
 }
 newsApp.forEach((item) => {
@@ -304,6 +308,7 @@ inputSearchClosed.addEventListener("click", function (e) {
   inputResult.innerHTML = "";
   inputResult.classList.remove("show");
   inputCounter.classList.remove("show");
+  inputSearchClosed.classList.remove("show");
 });
 
 function searchArticle() {
@@ -333,6 +338,7 @@ function searchArticle() {
         e.forEach(function (element) {
           element.innerHTML = element.innerText;
         });
+        inputSearchClosed.classList.remove("show");
       }
     }
     search(p);
